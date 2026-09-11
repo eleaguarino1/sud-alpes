@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/img/logo-icon-dark.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -81,16 +81,79 @@
     <img src="assets/img/photos/hero-terrasse-toit.jpg" alt="Chantier d'étanchéité de toiture-terrasse réalisé par Sud Alpes Étanchéité, environnement provençal">
   </div>
   <div class="container hero-inner">
-    <div class="hero-eyebrow">Sud Alpes Étanchéité</div>
-    <h1>Votre expert en étanchéité du Pays d'Aix aux Hautes-Alpes</h1>
-    <p class="hero-sub">Toitures, terrasses, piscines, résine, ouvrages enterrés et recherche de fuite : un savoir-faire familial transmis depuis quatre générations au service de la protection durable de vos ouvrages.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Demander mon devis</a>
-      <a href="#expertises" class="btn btn-outline">Découvrir nos expertises</a>
-    </div>
-    <div class="hero-zones">
-      <strong>Zone d'intervention :</strong>
-      <span>Aix-en-Provence · Pertuis · Manosque · Sisteron · Gap · Embrun · Briançon</span>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">Sud Alpes Étanchéité</div>
+        <h1>Votre expert en étanchéité <span class="accent-text">du Pays d'Aix aux Hautes-Alpes</span></h1>
+        <p class="hero-sub">Toitures, terrasses, piscines, résine, ouvrages enterrés et recherche de fuite : un savoir-faire familial transmis depuis quatre générations au service de la protection durable de vos ouvrages.</p>
+
+        <ul class="hero-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Savoir-faire familial transmis depuis quatre générations</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Toute la gamme étanchéité : toiture, terrasse, piscine, résine, enterré</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>Intervention sur toute la zone Aix-en-Provence → Briançon</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a href="tel:+33635443879" class="btn btn-outline">Nous appeler</a>
+          <a href="#expertises" class="btn btn-outline">Découvrir nos expertises</a>
+        </div>
+
+        <div class="hero-zones">
+          <strong>Zone d'intervention :</strong>
+          <span>Aix-en-Provence · Pertuis · Manosque · Sisteron · Gap · Embrun · Briançon</span>
+        </div>
+      </div>
+
+      <form class="hero-quote-card reveal">
+        <div class="hero-quote-head">
+          <h2>Demandez votre devis</h2>
+          <p>Décrivez votre projet, un expert vous recontacte.</p>
+        </div>
+
+        <div class="field">
+          <label for="hq-prestation">Votre besoin</label>
+          <select id="hq-prestation" name="prestation">
+            <option value="">Sélectionnez une prestation</option>
+            <option>Terrasses auto-protégées</option>
+            <option>Toitures-terrasses — Étanchéité liquide</option>
+            <option>Terrasses sous protection lourde</option>
+            <option>Terrasses à rétention d'eau (Nidaroof)</option>
+            <option>Toitures-terrasses végétalisées</option>
+            <option>Étanchéité des parois enterrées</option>
+            <option>Bassins &amp; piscines béton</option>
+            <option>Cuvelage</option>
+            <option>Étanchéité des douches</option>
+            <option>Planchers intermédiaires</option>
+            <option>Étanchéité génie civil</option>
+            <option>Recherche de fuite / infiltration</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="hq-nom">Nom complet</label>
+          <input id="hq-nom" name="nom" type="text" placeholder="Jean Dupont" required>
+        </div>
+
+        <div class="form-grid two">
+          <div class="field">
+            <label for="hq-tel">Téléphone</label>
+            <input id="hq-tel" name="telephone" type="tel" placeholder="06 00 00 00 00" required>
+          </div>
+          <div class="field">
+            <label for="hq-cp">Code postal</label>
+            <input id="hq-cp" name="code_postal" type="text" inputmode="numeric" placeholder="13100">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="hq-email">E-mail</label>
+          <input id="hq-email" name="email" type="email" placeholder="vous@exemple.com" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Recevoir mon devis</button>
+        <p class="hero-quote-note">Vos coordonnées servent uniquement à vous recontacter au sujet de votre projet.</p>
+      </form>
     </div>
   </div>
   <div class="scroll-cue">
@@ -262,9 +325,12 @@
 </section>
 
 <!-- ============ MÉTHODE ============ -->
-<section class="section" id="methode">
+<section class="section method-photo" id="methode">
+  <div class="method-photo-media">
+    <img src="assets/img/photos/toiture-terrasse-skylight.jpg" alt="" loading="lazy">
+  </div>
   <div class="container">
-    <div class="section-head reveal">
+    <div class="section-head center reveal">
       <div class="eyebrow">Notre méthode</div>
       <h2 class="section-title">Une démarche structurée, de l'étude à la réception</h2>
       <p class="section-lede">Chaque chantier suit un processus rigoureux, pensé pour garantir la fiabilité technique et la tranquillité du client.</p>
@@ -272,25 +338,21 @@
 
     <div class="method-list">
       <div class="method-step reveal">
-        <div class="method-step-connector"></div>
         <span class="step-num">01</span>
         <h3>Étude du projet</h3>
         <p>Analyse de l'ouvrage, des contraintes techniques et des attentes du client pour définir la solution la mieux adaptée.</p>
       </div>
       <div class="method-step reveal">
-        <div class="method-step-connector"></div>
         <span class="step-num">02</span>
         <h3>Préconisation &amp; devis</h3>
         <p>Proposition technique détaillée et devis clair, précisant les matériaux, systèmes et délais envisagés.</p>
       </div>
       <div class="method-step reveal">
-        <div class="method-step-connector"></div>
         <span class="step-num">03</span>
         <h3>Réalisation</h3>
         <p>Mise en œuvre par notre équipe selon les règles de l'art, avec un suivi rigoureux de chaque étape du chantier.</p>
       </div>
       <div class="method-step reveal">
-        <div class="method-step-connector"></div>
         <span class="step-num">04</span>
         <h3>Contrôle &amp; réception</h3>
         <p>Vérification finale de l'étanchéité et de la conformité de l'ouvrage avant remise au client.</p>

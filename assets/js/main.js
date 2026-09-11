@@ -88,9 +88,8 @@
     });
   }
 
-  // Quote form: basic front-end handling (no backend wired yet)
-  var quoteForm = document.querySelector(".quote-form");
-  if (quoteForm) {
+  // Quote forms (main form + hero quick-quote card): basic front-end handling (no backend wired yet)
+  document.querySelectorAll(".quote-form, .hero-quote-card").forEach(function (quoteForm) {
     quoteForm.addEventListener("submit", function (e) {
       e.preventDefault();
       var submitBtn = quoteForm.querySelector('button[type="submit"]');
@@ -100,7 +99,7 @@
       setTimeout(function () {
         submitBtn.textContent = "Demande envoyée — merci !";
         quoteForm.reset();
-        var fl = document.querySelector(".file-drop .file-drop-text");
+        var fl = quoteForm.querySelector(".file-drop .file-drop-text");
         if (fl) fl.textContent = "Glissez vos photos ici ou cliquez pour parcourir";
         setTimeout(function () {
           submitBtn.textContent = originalText;
@@ -108,7 +107,7 @@
         }, 3000);
       }, 900);
     });
-  }
+  });
 
   // Current year in footer
   var yearEl = document.querySelector("#current-year");
