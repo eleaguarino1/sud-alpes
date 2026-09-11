@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eleaguarino1.github.io/sud-alpes/sitemap.xml
