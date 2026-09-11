@@ -1068,77 +1068,17 @@ h2.section-title {
 }
 .gallery-item:hover::after { opacity: 1; }
 
-/* ---------- Coverage / map section ---------- */
+/* ---------- Fournisseurs ---------- */
 
-.coverage-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-@media (min-width: 980px) {
-  .coverage-grid { grid-template-columns: 1fr 1fr; gap: 72px; }
-}
-
-.coverage-map {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--navy);
-  aspect-ratio: 4/5;
-  padding: 36px;
-}
-
-.route-line {
-  stroke: var(--blue);
-  stroke-width: 2.5;
-  fill: none;
-  stroke-dasharray: 6 6;
-}
-
-.route-dot {
-  fill: var(--off-white);
-  stroke: var(--blue);
-  stroke-width: 2;
-}
-.route-dot.main {
-  fill: var(--blue);
-  stroke: var(--white);
-}
-
-.route-label {
-  fill: rgba(255,255,255,0.85);
-  font-family: var(--font);
-  font-size: 12.5px;
-  font-weight: 600;
-}
-
-.coverage-towns {
-  list-style: none;
-  padding: 0;
-  margin: 28px 0 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px 20px;
-}
-
-.coverage-towns li {
+.suppliers-row {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14.5px;
-  color: rgba(247,248,250,0.9);
-  font-weight: 500;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  justify-content: center;
 }
 
-.coverage-towns li svg {
-  width: 15px;
-  height: 15px;
-  color: var(--blue);
-  flex: none;
+.suppliers-row img {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
 }
 
 /* ---------- FAQ ---------- */
