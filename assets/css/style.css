@@ -679,34 +679,13 @@ h2.section-title {
   content: "";
   position: absolute;
   z-index: 0;
-  top: 0;
-  right: 0;
-  width: 640px;
-  height: 640px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(62,110,181,0.05), rgba(62,110,181,0) 70%);
+  inset: 0;
+  background:
+    radial-gradient(1100px 620px at 105% -8%, rgba(62,110,181,0.08), transparent 60%),
+    radial-gradient(900px 520px at -8% 108%, rgba(62,110,181,0.06), transparent 60%);
   pointer-events: none;
 }
 .section > .container { position: relative; z-index: 1; }
-
-#methode {
-  background: linear-gradient(180deg, rgba(62,110,181,0.08) 0%, rgba(62,110,181,0) 60%);
-}
-#methode::before {
-  background: radial-gradient(circle, rgba(62,110,181,0.18), rgba(62,110,181,0) 70%);
-}
-#methode::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  bottom: -220px;
-  left: -160px;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(62,110,181,0.12), rgba(62,110,181,0) 70%);
-  pointer-events: none;
-}
 
 /* ---------- Expertises grid ---------- */
 
