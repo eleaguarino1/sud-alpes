@@ -1,4 +1,4 @@
-// SUD ALPES ÉTANCHÉITÉ — interactions
+// SUD ALPES ÉTANCHÉITÉ - interactions
 (function () {
   "use strict";
 
@@ -99,13 +99,13 @@
 
       fetch("/", { method: "POST", body: new FormData(quoteForm) })
         .then(function () {
-          submitBtn.textContent = "Demande envoyée — merci !";
+          submitBtn.textContent = "Demande envoyée - merci !";
           quoteForm.reset();
           var fl = quoteForm.querySelector(".file-drop .file-drop-text");
           if (fl) fl.textContent = "Glissez vos photos ici ou cliquez pour parcourir";
         })
         .catch(function () {
-          submitBtn.textContent = "Erreur — réessayez ou appelez-nous";
+          submitBtn.textContent = "Erreur - réessayez ou appelez-nous";
         })
         .finally(function () {
           setTimeout(function () {
