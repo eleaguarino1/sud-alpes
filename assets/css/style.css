@@ -902,58 +902,87 @@ h2.section-title {
   margin: 0;
 }
 
-/* ---------- Professionals section ---------- */
+/* ---------- Professionals section (photo backdrop + glass cards) ---------- */
 
-.pro-section {
+.pro-photo {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--white);
+}
+
+.pro-photo-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.pro-photo-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pro-photo-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, rgba(20,35,59,0.93) 0%, rgba(20,35,59,0.86) 55%, rgba(20,35,59,0.94) 100%);
+}
+
+.pro-photo .section-title { color: var(--white); }
+.pro-photo .section-lede { color: rgba(247,248,250,0.72); }
+
+.pro-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
-  align-items: center;
+  gap: 20px;
 }
 
-@media (min-width: 980px) {
-  .pro-section { grid-template-columns: 1.05fr 0.95fr; gap: 72px; }
+@media (min-width: 700px) {
+  .pro-cards { grid-template-columns: repeat(2, 1fr); }
 }
 
-.pro-media {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 4/3;
-}
-.pro-media img { width: 100%; height: 100%; object-fit: cover; }
-
-.pro-list {
-  list-style: none;
-  padding: 0;
-  margin: 28px 0 0;
+.pro-card {
   display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.pro-list li {
-  display: flex;
-  gap: 14px;
+  gap: 16px;
   align-items: flex-start;
-  font-size: 15px;
-  color: var(--navy);
-  line-height: 1.5;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  background: var(--glass-light-bg);
+  border: 1px solid var(--glass-light-border);
+  backdrop-filter: blur(10px);
+  transition: background var(--transition), border-color var(--transition);
+}
+.pro-card:hover {
+  background: var(--glass-blue-bg);
+  border-color: var(--glass-blue-border);
 }
 
-.pro-list .tick {
+.pro-card p {
+  margin: 0;
+  font-size: 15px;
+  color: rgba(247,248,250,0.9);
+  line-height: 1.55;
+}
+
+.pro-card .tick {
   flex: none;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: rgba(var(--blue-rgb), 0.12);
-  color: var(--blue);
+  background: var(--glass-blue-bg);
+  border: 1px solid var(--glass-blue-border);
+  color: #8CB1E6;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 1px;
 }
-.pro-list .tick svg { width: 12px; height: 12px; }
+.pro-card .tick svg { width: 13px; height: 13px; }
+
+.pro-cta {
+  margin-top: 44px;
+  text-align: center;
+}
 
 /* ---------- Heritage section ---------- */
 
