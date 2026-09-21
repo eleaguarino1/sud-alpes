@@ -88,7 +88,7 @@
     });
   }
 
-  // Quote forms (main form + hero quick-quote card): basic front-end handling (no backend wired yet)
+  // Quote forms (main form + hero quick-quote card): submitted to Netlify Forms
   document.querySelectorAll(".quote-form, .hero-quote-card").forEach(function (quoteForm) {
     quoteForm.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -96,16 +96,23 @@
       var originalText = submitBtn.textContent;
       submitBtn.textContent = "Envoi en cours...";
       submitBtn.disabled = true;
-      setTimeout(function () {
-        submitBtn.textContent = "Demande envoyée — merci !";
-        quoteForm.reset();
-        var fl = quoteForm.querySelector(".file-drop .file-drop-text");
-        if (fl) fl.textContent = "Glissez vos photos ici ou cliquez pour parcourir";
-        setTimeout(function () {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }, 3000);
-      }, 900);
+
+      fetch("/", { method: "POST", body: new FormData(quoteForm) })
+        .then(function () {
+          submitBtn.textContent = "Demande envoyée — merci !";
+          quoteForm.reset();
+          var fl = quoteForm.querySelector(".file-drop .file-drop-text");
+          if (fl) fl.textContent = "Glissez vos photos ici ou cliquez pour parcourir";
+        })
+        .catch(function () {
+          submitBtn.textContent = "Erreur — réessayez ou appelez-nous";
+        })
+        .finally(function () {
+          setTimeout(function () {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }, 3000);
+        });
     });
   });
 

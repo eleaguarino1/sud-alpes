@@ -130,7 +130,9 @@
         </div>
       </div>
 
-      <form class="hero-quote-card reveal">
+      <form class="hero-quote-card reveal" name="devis-rapide" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="devis-rapide">
+        <p style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
         <div class="hero-quote-head">
           <h2>Demandez votre devis</h2>
           <p>Décrivez votre projet, un expert vous recontacte.</p>
@@ -567,7 +569,9 @@
         </ul>
       </div>
 
-      <form class="quote-form reveal">
+      <form class="quote-form reveal" name="devis-complet" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="devis-complet">
+        <p style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
         <div class="form-grid two">
           <div class="field">
             <label for="f-nom">Nom et prénom</label>
