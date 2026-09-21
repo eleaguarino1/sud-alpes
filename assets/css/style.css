@@ -920,10 +920,8 @@ h2.section-title {
 .method-step {
   position: relative;
   z-index: 1;
-  padding: 0 28px 0 0;
-}
-@media (min-width: 1080px) {
-  .method-step:last-child { padding-right: 0; }
+  padding: 0 20px;
+  text-align: center;
 }
 
 .method-step .step-num {
@@ -941,7 +939,7 @@ h2.section-title {
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--blue);
-  margin-bottom: 22px;
+  margin: 0 auto 22px;
 }
 
 .method-step h3 {
