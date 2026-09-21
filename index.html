@@ -60,7 +60,6 @@
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#expertises">Nos expertises</a></li>
         <li><a href="#methode">Notre méthode</a></li>
-        <li><a href="#realisations">Réalisations</a></li>
         <li><a href="#entreprise">L'entreprise</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -95,7 +94,6 @@
     <li><a href="#accueil">Accueil</a></li>
     <li><a href="#expertises">Nos expertises</a></li>
     <li><a href="#methode">Notre méthode</a></li>
-    <li><a href="#realisations">Réalisations</a></li>
     <li><a href="#entreprise">L'entreprise</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -241,12 +239,20 @@
         </div>
       </article>
 
-      <article class="expertise-card reveal">
+      <article class="expertise-card has-gallery reveal" role="button" tabindex="0"
+        data-gallery-title="Terrasses sous protection lourde - Finitions"
+        data-gallery-images='[
+          {"src":"assets/img/photos/terrasse-pierre.jpg","label":"Carrelage scellé / pierre"},
+          {"src":"assets/img/photos/terrasse-gravier.jpg","label":"Gravier"},
+          {"src":"assets/img/photos/terrasse-bois.jpg","label":"Platelage bois"},
+          {"src":"assets/img/photos/dalles-sur-plots.jpg","label":"Dalles sur plots"}
+        ]'>
         <img src="assets/img/photos/terrasse-pierre.jpg" alt="Terrasse sous protection lourde, finition dalles de pierre" loading="lazy">
         <div class="expertise-card-body">
           <span class="num">03</span>
           <h3>Terrasses sous protection lourde</h3>
           <p>Gravier, carrelage scellé / pierre, dalles sur plots ou platelage bois : une protection optimale de la toiture-terrasse, robuste et durable, avec de nombreuses finitions.</p>
+          <span class="gallery-hint">Voir les finitions →</span>
         </div>
       </article>
 
@@ -403,52 +409,6 @@
 
     <div class="pro-cta reveal">
       <a href="#contact" class="btn btn-primary">Échanger sur votre projet</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ RÉALISATIONS ============ -->
-<section class="section" id="realisations">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Réalisations</div>
-      <h2 class="section-title">Nos chantiers</h2>
-      <p class="section-lede">Une sélection de réalisations récentes, illustrant la diversité de nos interventions en étanchéité et imperméabilisation.</p>
-    </div>
-
-    <div class="gallery-grid">
-      <div class="gallery-item wide reveal">
-        <img src="assets/img/photos/hero-terrasse-toit.jpg" alt="Étanchéité de toiture-terrasse, vue dégagée" loading="lazy">
-        <span class="tag">Toiture-terrasse</span>
-      </div>
-      <div class="gallery-item tall reveal">
-        <img src="assets/img/photos/terrasse-bois.jpg" alt="Terrasse sous protection lourde, finition platelage bois" loading="lazy">
-        <span class="tag">Platelage bois</span>
-      </div>
-      <div class="gallery-item reveal">
-        <img src="assets/img/photos/terrasse-gravier.jpg" alt="Terrasse étanchée avec finition gravier" loading="lazy">
-        <span class="tag">Terrasse gravier</span>
-      </div>
-      <div class="gallery-item reveal">
-        <img src="assets/img/photos/cuvelage.jpg" alt="Travaux de cuvelage en sous-sol" loading="lazy">
-        <span class="tag">Cuvelage</span>
-      </div>
-      <div class="gallery-item tall reveal">
-        <img src="assets/img/photos/douche-etancheite.jpg" alt="Étanchéité d'une douche à l'italienne" loading="lazy">
-        <span class="tag">Étanchéité douche</span>
-      </div>
-      <div class="gallery-item wide reveal">
-        <img src="assets/img/photos/bassin-fontaine.jpg" alt="Imperméabilisation d'un bassin" loading="lazy">
-        <span class="tag">Imperméabilisation bassin</span>
-      </div>
-      <div class="gallery-item reveal">
-        <img src="assets/img/photos/dalles-sur-plots.jpg" alt="Terrasse sous protection lourde, finition dalles sur plots" loading="lazy">
-        <span class="tag">Dalles sur plots</span>
-      </div>
-      <div class="gallery-item reveal">
-        <img src="assets/img/photos/genie-civil-pont.jpg" alt="Étanchéité d'un tablier de pont, génie civil" loading="lazy">
-        <span class="tag">Génie civil</span>
-      </div>
     </div>
   </div>
 </section>
@@ -654,7 +614,6 @@
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#expertises">Nos expertises</a></li>
           <li><a href="#methode">Notre méthode</a></li>
-          <li><a href="#realisations">Réalisations</a></li>
           <li><a href="#entreprise">L'entreprise</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -698,6 +657,18 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3V4Z"/></svg>
     Devis gratuit
   </a>
+</div>
+
+<!-- ============ PHOTO MODAL ============ -->
+<div class="photo-modal" id="photo-modal" aria-hidden="true">
+  <div class="photo-modal-backdrop" data-modal-close></div>
+  <div class="photo-modal-panel">
+    <button class="photo-modal-close" data-modal-close aria-label="Fermer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h3 class="photo-modal-title"></h3>
+    <div class="photo-modal-grid"></div>
+  </div>
 </div>
 
 <script src="assets/js/main.js"></script>

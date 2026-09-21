@@ -119,4 +119,64 @@
   // Current year in footer
   var yearEl = document.querySelector("#current-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Expertise card photo galleries (e.g. "Terrasses sous protection lourde")
+  var modal = document.querySelector("#photo-modal");
+  if (modal) {
+    var modalTitle = modal.querySelector(".photo-modal-title");
+    var modalGrid = modal.querySelector(".photo-modal-grid");
+
+    function openGallery(card) {
+      var title = card.getAttribute("data-gallery-title") || "";
+      var images = [];
+      try {
+        images = JSON.parse(card.getAttribute("data-gallery-images") || "[]");
+      } catch (e) {
+        images = [];
+      }
+      modalTitle.textContent = title;
+      modalGrid.innerHTML = "";
+      images.forEach(function (item) {
+        var fig = document.createElement("figure");
+        fig.className = "photo-modal-item";
+        var img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.label || "";
+        img.loading = "lazy";
+        var cap = document.createElement("figcaption");
+        cap.textContent = item.label || "";
+        fig.appendChild(img);
+        fig.appendChild(cap);
+        modalGrid.appendChild(fig);
+      });
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeGallery() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".has-gallery").forEach(function (card) {
+      card.addEventListener("click", function () {
+        openGallery(card);
+      });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openGallery(card);
+        }
+      });
+    });
+
+    modal.querySelectorAll("[data-modal-close]").forEach(function (el) {
+      el.addEventListener("click", closeGallery);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeGallery();
+    });
+  }
 })();
