@@ -957,35 +957,6 @@ h2.section-title {
 
 /* ---------- Heritage section ---------- */
 
-.heritage {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.heritage-backdrop {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-.heritage-backdrop img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.heritage-backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(165deg, rgba(20,35,59,0.78) 0%, rgba(62,110,181,0.55) 50%, rgba(20,35,59,0.82) 100%);
-}
-
-.heritage .eyebrow,
-.heritage .eyebrow::before {
-  color: #8CB1E6;
-}
-.heritage .eyebrow::before { background: #8CB1E6; }
-
 .heritage-grid {
   display: grid;
   grid-template-columns: 1fr;
