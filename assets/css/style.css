@@ -681,8 +681,8 @@ h2.section-title {
   z-index: 0;
   inset: 0;
   background:
-    radial-gradient(1100px 620px at 105% -8%, rgba(62,110,181,0.08), transparent 60%),
-    radial-gradient(900px 520px at -8% 108%, rgba(62,110,181,0.06), transparent 60%);
+    radial-gradient(1200px 700px at 105% -10%, rgba(62,110,181,0.18), transparent 65%),
+    radial-gradient(1000px 620px at -10% 110%, rgba(62,110,181,0.14), transparent 65%);
   pointer-events: none;
 }
 .section > .container { position: relative; z-index: 1; }
