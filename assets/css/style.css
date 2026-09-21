@@ -963,7 +963,32 @@ h2.section-title {
 
 .heritage {
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
+
+.heritage-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.heritage-backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.heritage-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, rgba(20,35,59,0.78) 0%, rgba(62,110,181,0.55) 50%, rgba(20,35,59,0.82) 100%);
+}
+
+.heritage .eyebrow,
+.heritage .eyebrow::before {
+  color: #8CB1E6;
+}
+.heritage .eyebrow::before { background: #8CB1E6; }
 
 .heritage-grid {
   display: grid;
@@ -981,14 +1006,9 @@ h2.section-title {
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4/3;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
 }
 .heritage-media img { width: 100%; height: 100%; object-fit: cover; }
-.heritage-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(62,110,181,0.45);
-}
 
 /* ---------- Fournisseurs ---------- */
 
