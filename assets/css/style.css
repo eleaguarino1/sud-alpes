@@ -1282,8 +1282,27 @@ h2.section-title {
 }
 .footer-col a:hover { color: var(--white); }
 
+.footer-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer-group img { width: 42px; height: auto; flex: none; }
+.footer-group-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13.5px;
+}
+.footer-group-text span { color: rgba(255,255,255,0.55); }
+.footer-group-text a { color: rgba(255,255,255,0.85); font-weight: 600; transition: color var(--transition); }
+.footer-group-text a:hover { color: var(--white); }
+
 .footer-bottom {
-  margin-top: 64px;
+  margin-top: 28px;
   padding-top: 28px;
   border-top: 1px solid rgba(255,255,255,0.1);
   display: flex;
