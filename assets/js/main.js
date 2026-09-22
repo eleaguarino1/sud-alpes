@@ -182,7 +182,7 @@
 
   // Scroll-linked pan on oversized backdrop photos (reveals them part by part)
   var panTargets = [
-    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img"), overscan: 50 },
+    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img"), overscan: 90 },
     { section: document.querySelector(".heritage"), img: document.querySelector(".heritage-backdrop img"), overscan: 110 }
   ].filter(function (t) { return t.section && t.img; });
 
