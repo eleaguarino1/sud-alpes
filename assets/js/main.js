@@ -182,8 +182,8 @@
 
   // Scroll-linked pan on oversized backdrop photos (reveals them part by part)
   var panTargets = [
-    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img") },
-    { section: document.querySelector(".heritage"), img: document.querySelector(".heritage-backdrop img") }
+    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img"), overscan: 50 },
+    { section: document.querySelector(".heritage"), img: document.querySelector(".heritage-backdrop img"), overscan: 110 }
   ].filter(function (t) { return t.section && t.img; });
 
   if (panTargets.length) {
@@ -194,7 +194,7 @@
         var rect = t.section.getBoundingClientRect();
         var progress = (vh - rect.top) / (vh + rect.height);
         progress = Math.max(0, Math.min(1, progress));
-        var shift = 110 - progress * 220;
+        var shift = t.overscan - progress * (t.overscan * 2);
         t.img.style.transform = "translateY(" + shift.toFixed(1) + "px)";
       });
       panTicking = false;
