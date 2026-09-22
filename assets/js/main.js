@@ -180,26 +180,31 @@
     });
   }
 
-  // Scroll-linked pan on the heritage backdrop photo (reveals it part by part)
-  var heritageImg = document.querySelector(".heritage-backdrop img");
-  if (heritageImg) {
-    var heritageSection = document.querySelector(".heritage");
-    var ticking = false;
-    function updateHeritagePan() {
-      var rect = heritageSection.getBoundingClientRect();
+  // Scroll-linked pan on oversized backdrop photos (reveals them part by part)
+  var panTargets = [
+    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img") },
+    { section: document.querySelector(".heritage"), img: document.querySelector(".heritage-backdrop img") }
+  ].filter(function (t) { return t.section && t.img; });
+
+  if (panTargets.length) {
+    var panTicking = false;
+    function updatePans() {
       var vh = window.innerHeight;
-      var progress = (vh - rect.top) / (vh + rect.height);
-      progress = Math.max(0, Math.min(1, progress));
-      var shift = 110 - progress * 220;
-      heritageImg.style.transform = "translateY(" + shift.toFixed(1) + "px)";
-      ticking = false;
+      panTargets.forEach(function (t) {
+        var rect = t.section.getBoundingClientRect();
+        var progress = (vh - rect.top) / (vh + rect.height);
+        progress = Math.max(0, Math.min(1, progress));
+        var shift = 110 - progress * 220;
+        t.img.style.transform = "translateY(" + shift.toFixed(1) + "px)";
+      });
+      panTicking = false;
     }
     window.addEventListener("scroll", function () {
-      if (!ticking) {
-        window.requestAnimationFrame(updateHeritagePan);
-        ticking = true;
+      if (!panTicking) {
+        window.requestAnimationFrame(updatePans);
+        panTicking = true;
       }
     }, { passive: true });
-    updateHeritagePan();
+    updatePans();
   }
 })();
