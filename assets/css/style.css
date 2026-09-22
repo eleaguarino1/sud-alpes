@@ -744,6 +744,7 @@ h2.section-title {
   z-index: 1;
   padding: 26px;
   color: var(--white);
+  min-height: 200px;
 }
 
 .expertise-card > .num {
