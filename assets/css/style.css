@@ -364,7 +364,7 @@ h2.section-title {
   width: 100%;
   height: calc(100% + 180px);
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 22%;
   will-change: transform;
 }
 
