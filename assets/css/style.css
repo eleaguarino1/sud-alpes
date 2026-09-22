@@ -177,12 +177,13 @@ h2.section-title {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(20,35,59,0.92);
-  backdrop-filter: saturate(140%) blur(10px);
-  transition: box-shadow var(--transition);
+  background: rgba(20,35,59,0.0);
+  transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
 }
 
 .site-header.scrolled {
+  background: rgba(20,35,59,0.92);
+  backdrop-filter: saturate(140%) blur(10px);
   box-shadow: 0 1px 0 rgba(255,255,255,0.06);
 }
 
