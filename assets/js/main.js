@@ -184,7 +184,7 @@
   var panTargets = [
     // Hero sits at the very top: pan it over a fixed, short scroll distance
     // so the effect is clearly visible right away, regardless of hero height.
-    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img"), overscan: 90, fixedRange: 450 },
+    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media-blur"), overscan: 90, fixedRange: 450 },
     { section: document.querySelector(".heritage"), img: document.querySelector(".heritage-backdrop img"), overscan: 110 }
   ].filter(function (t) { return t.section && t.img; });
 
