@@ -182,7 +182,9 @@
 
   // Scroll-linked pan on oversized backdrop photos (reveals them part by part)
   var panTargets = [
-    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img"), overscan: 90 },
+    // Hero sits at the very top: pan it over a fixed, short scroll distance
+    // so the effect is clearly visible right away, regardless of hero height.
+    { section: document.querySelector(".hero"), img: document.querySelector(".hero-media img"), overscan: 90, fixedRange: 450 },
     { section: document.querySelector(".heritage"), img: document.querySelector(".heritage-backdrop img"), overscan: 110 }
   ].filter(function (t) { return t.section && t.img; });
 
@@ -192,7 +194,12 @@
       var vh = window.innerHeight;
       panTargets.forEach(function (t) {
         var rect = t.section.getBoundingClientRect();
-        var progress = (vh - rect.top) / (vh + rect.height);
+        var progress;
+        if (t.fixedRange) {
+          progress = -rect.top / t.fixedRange;
+        } else {
+          progress = (vh - rect.top) / (vh + rect.height);
+        }
         progress = Math.max(0, Math.min(1, progress));
         var shift = t.overscan - progress * (t.overscan * 2);
         t.img.style.transform = "translateY(" + shift.toFixed(1) + "px)";
