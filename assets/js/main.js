@@ -179,4 +179,27 @@
       if (e.key === "Escape") closeGallery();
     });
   }
+
+  // Scroll-linked zoom on the heritage backdrop photo
+  var heritageImg = document.querySelector(".heritage-backdrop img");
+  if (heritageImg) {
+    var heritageSection = document.querySelector(".heritage");
+    var ticking = false;
+    function updateHeritageZoom() {
+      var rect = heritageSection.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var progress = (vh - rect.top) / (vh + rect.height);
+      progress = Math.max(0, Math.min(1, progress));
+      var scale = 1 + progress * 0.18;
+      heritageImg.style.transform = "scale(" + scale.toFixed(3) + ")";
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeritageZoom);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateHeritageZoom();
+  }
 })();
