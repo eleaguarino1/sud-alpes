@@ -923,7 +923,7 @@ h2.section-title {
     left: 11.5%;
     right: 11.5%;
     height: 1px;
-    background: var(--light-grey);
+    background: rgba(62,110,181,0.4);
     z-index: 0;
   }
 }
