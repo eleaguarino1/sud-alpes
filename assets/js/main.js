@@ -205,7 +205,7 @@
       zoneMapInstance = L.map(mapEl, {
         scrollWheelZoom: false,
         attributionControl: true
-      });
+      }).setView(hq, 8);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 18,
@@ -214,20 +214,22 @@
 
       var boundsPoints = [hq];
       zones.forEach(function (zone) {
-        var circle = L.circle(zone.center, {
+        L.circle(zone.center, {
           radius: zone.radius,
           color: "#3E6EB5",
           weight: 1.5,
           fillColor: "#3E6EB5",
           fillOpacity: 0.14
-        }).addTo(zoneMapInstance);
-        circle.bindTooltip(zone.name, {
+        }).addTo(zoneMapInstance).bindTooltip(zone.name, {
           permanent: true,
           direction: "center",
           className: "zone-map-label"
         });
-        boundsPoints.push(circle.getBounds().getNorthEast());
-        boundsPoints.push(circle.getBounds().getSouthWest());
+        // Rough degree offset from the radius (meters) so fitBounds covers
+        // the whole circle without needing a post-layout getBounds() call.
+        var degOffset = zone.radius / 111000;
+        boundsPoints.push([zone.center[0] + degOffset, zone.center[1] + degOffset]);
+        boundsPoints.push([zone.center[0] - degOffset, zone.center[1] - degOffset]);
       });
 
       var hqIcon = L.divIcon({
