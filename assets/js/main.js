@@ -192,15 +192,14 @@
       if (!mapEl) return;
 
       var hq = [43.567, 5.333];
-      var cities = [
-        { name: "Aix-en-Provence", coords: [43.5297, 5.4474] },
-        { name: "Pertuis", coords: [43.6944, 5.5000] },
-        { name: "Manosque", coords: [43.8288, 5.7869] },
-        { name: "Sisteron", coords: [44.1955, 5.9445] },
-        { name: "Gap", coords: [44.5590, 6.0787] },
-        { name: "Embrun", coords: [44.5647, 6.4954] },
-        { name: "Briançon", coords: [44.8998, 6.6329] },
-        { name: "Brignoles", coords: [43.4059, 6.0616] }
+      // Approximate zones (not exact administrative borders), just enough
+      // to show roughly where the company intervenes.
+      var zones = [
+        { name: "Pays d'Aix", center: [43.55, 5.42], radius: 26000 },
+        { name: "Vaucluse", center: [43.98, 5.10], radius: 32000 },
+        { name: "Var", center: [43.45, 6.05], radius: 27000 },
+        { name: "Alpes-de-Haute-Provence", center: [44.05, 6.05], radius: 42000 },
+        { name: "Hautes-Alpes", center: [44.75, 6.42], radius: 46000 }
       ];
 
       zoneMapInstance = L.map(mapEl, {
@@ -213,6 +212,24 @@
         attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a>"
       }).addTo(zoneMapInstance);
 
+      var boundsPoints = [hq];
+      zones.forEach(function (zone) {
+        var circle = L.circle(zone.center, {
+          radius: zone.radius,
+          color: "#3E6EB5",
+          weight: 1.5,
+          fillColor: "#3E6EB5",
+          fillOpacity: 0.14
+        }).addTo(zoneMapInstance);
+        circle.bindTooltip(zone.name, {
+          permanent: true,
+          direction: "center",
+          className: "zone-map-label"
+        });
+        boundsPoints.push(circle.getBounds().getNorthEast());
+        boundsPoints.push(circle.getBounds().getSouthWest());
+      });
+
       var hqIcon = L.divIcon({
         className: "zone-map-hq-marker",
         html: "<span></span>",
@@ -220,18 +237,7 @@
       });
       L.marker(hq, { icon: hqIcon }).addTo(zoneMapInstance).bindTooltip("Sud Alpes Étanchéité", { permanent: false });
 
-      var cityIcon = L.divIcon({
-        className: "zone-map-city-marker",
-        html: "<span></span>",
-        iconSize: [10, 10]
-      });
-      var boundsPoints = [hq];
-      cities.forEach(function (city) {
-        L.marker(city.coords, { icon: cityIcon }).addTo(zoneMapInstance).bindTooltip(city.name, { permanent: false });
-        boundsPoints.push(city.coords);
-      });
-
-      zoneMapInstance.fitBounds(boundsPoints, { padding: [24, 24] });
+      zoneMapInstance.fitBounds(boundsPoints, { padding: [16, 16] });
     }
 
     function openZone() {

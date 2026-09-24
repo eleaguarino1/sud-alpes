@@ -993,35 +993,21 @@ h2.section-title {
   border: 3px solid var(--white);
   box-shadow: 0 0 0 2px var(--navy);
 }
-.zone-map-city-marker span {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--blue);
-  border: 2px solid var(--white);
-}
 .leaflet-container {
   font-family: var(--font);
 }
 
-.zone-modal-cities {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 10px;
-  margin: 18px 0 0;
-  padding: 0;
-}
-.zone-modal-cities li {
-  font-size: 13px;
-  font-weight: 500;
+.zone-map-label {
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-size: 12.5px;
+  font-weight: 700;
   color: var(--navy);
-  background: var(--off-white);
-  border: 1px solid var(--light-grey);
-  padding: 5px 12px;
-  border-radius: 999px;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.9), 0 0 6px rgba(255,255,255,0.9);
+  white-space: nowrap;
 }
+.zone-map-label::before { display: none; }
 
 /* ---------- Leak detection card (fills the expertise grid gap) ---------- */
 
