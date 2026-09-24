@@ -48,6 +48,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 
@@ -653,12 +654,7 @@
     </button>
     <h3 class="photo-modal-title">Notre zone d'intervention</h3>
     <p class="zone-modal-subtitle">Pays d'Aix · Vaucluse · Var · Alpes-de-Haute-Provence · Hautes-Alpes</p>
-    <div class="zone-modal-map">
-      <iframe
-        title="Carte de la zone d'intervention de Sud Alpes Étanchéité"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=4.70%2C43.15%2C6.90%2C45.05&layer=mapnik&marker=43.567%2C5.333"
-        loading="lazy"></iframe>
-    </div>
+    <div class="zone-modal-map" id="zone-map" role="img" aria-label="Carte de la zone d'intervention de Sud Alpes Étanchéité"></div>
     <ul class="zone-modal-cities">
       <li>Aix-en-Provence</li><li>Pertuis</li><li>Manosque</li><li>Sisteron</li>
       <li>Gap</li><li>Embrun</li><li>Briançon</li><li>Brignoles</li>
@@ -666,6 +662,7 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

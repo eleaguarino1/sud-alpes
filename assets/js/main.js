@@ -184,10 +184,64 @@
   var zoneModal = document.querySelector("#zone-modal");
   var zoneTrigger = document.querySelector("#zone-trigger");
   if (zoneModal && zoneTrigger) {
+    var zoneMapInstance = null;
+
+    function initZoneMap() {
+      if (zoneMapInstance || typeof L === "undefined") return;
+      var mapEl = document.querySelector("#zone-map");
+      if (!mapEl) return;
+
+      var hq = [43.567, 5.333];
+      var cities = [
+        { name: "Aix-en-Provence", coords: [43.5297, 5.4474] },
+        { name: "Pertuis", coords: [43.6944, 5.5000] },
+        { name: "Manosque", coords: [43.8288, 5.7869] },
+        { name: "Sisteron", coords: [44.1955, 5.9445] },
+        { name: "Gap", coords: [44.5590, 6.0787] },
+        { name: "Embrun", coords: [44.5647, 6.4954] },
+        { name: "Briançon", coords: [44.8998, 6.6329] },
+        { name: "Brignoles", coords: [43.4059, 6.0616] }
+      ];
+
+      zoneMapInstance = L.map(mapEl, {
+        scrollWheelZoom: false,
+        attributionControl: true
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 18,
+        attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a>"
+      }).addTo(zoneMapInstance);
+
+      var hqIcon = L.divIcon({
+        className: "zone-map-hq-marker",
+        html: "<span></span>",
+        iconSize: [16, 16]
+      });
+      L.marker(hq, { icon: hqIcon }).addTo(zoneMapInstance).bindTooltip("Sud Alpes Étanchéité", { permanent: false });
+
+      var cityIcon = L.divIcon({
+        className: "zone-map-city-marker",
+        html: "<span></span>",
+        iconSize: [10, 10]
+      });
+      var boundsPoints = [hq];
+      cities.forEach(function (city) {
+        L.marker(city.coords, { icon: cityIcon }).addTo(zoneMapInstance).bindTooltip(city.name, { permanent: false });
+        boundsPoints.push(city.coords);
+      });
+
+      zoneMapInstance.fitBounds(boundsPoints, { padding: [24, 24] });
+    }
+
     function openZone() {
       zoneModal.classList.add("open");
       zoneModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      initZoneMap();
+      setTimeout(function () {
+        if (zoneMapInstance) zoneMapInstance.invalidateSize();
+      }, 60);
     }
     function closeZone() {
       zoneModal.classList.remove("open");
