@@ -180,6 +180,35 @@
     });
   }
 
+  // Zone d'intervention modal (click on the hero "du Pays d'Aix aux Hautes-Alpes")
+  var zoneModal = document.querySelector("#zone-modal");
+  var zoneTrigger = document.querySelector("#zone-trigger");
+  if (zoneModal && zoneTrigger) {
+    function openZone() {
+      zoneModal.classList.add("open");
+      zoneModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeZone() {
+      zoneModal.classList.remove("open");
+      zoneModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+    zoneTrigger.addEventListener("click", openZone);
+    zoneTrigger.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openZone();
+      }
+    });
+    zoneModal.querySelectorAll("[data-zone-close]").forEach(function (el) {
+      el.addEventListener("click", closeZone);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeZone();
+    });
+  }
+
   // Scroll-linked pan on oversized backdrop photos (reveals them part by part)
   var panTargets = [
     // Hero sits at the very top: pan it over a fixed, short scroll distance

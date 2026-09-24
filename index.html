@@ -120,7 +120,7 @@
     <div class="hero-grid">
       <div class="hero-copy">
         <div class="hero-eyebrow">Sud Alpes Étanchéité</div>
-        <h1>Votre expert en étanchéité <span class="accent-text">du Pays d'Aix aux Hautes-Alpes</span></h1>
+        <h1>Votre expert en étanchéité <span class="accent-text zone-trigger" id="zone-trigger" role="button" tabindex="0">du Pays d'Aix aux Hautes-Alpes</span></h1>
 
         <div class="hero-actions">
           <a href="tel:+33413418577" class="btn btn-outline">Nous appeler</a>
@@ -641,6 +641,28 @@
     </button>
     <h3 class="photo-modal-title"></h3>
     <div class="photo-modal-grid"></div>
+  </div>
+</div>
+
+<!-- ============ ZONE MODAL ============ -->
+<div class="photo-modal zone-modal" id="zone-modal" aria-hidden="true">
+  <div class="photo-modal-backdrop" data-zone-close></div>
+  <div class="photo-modal-panel zone-modal-panel">
+    <button class="photo-modal-close" data-zone-close aria-label="Fermer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h3 class="photo-modal-title">Notre zone d'intervention</h3>
+    <p class="zone-modal-subtitle">Pays d'Aix · Vaucluse · Var · Alpes-de-Haute-Provence · Hautes-Alpes</p>
+    <div class="zone-modal-map">
+      <iframe
+        title="Carte de la zone d'intervention de Sud Alpes Étanchéité"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=4.70%2C43.15%2C6.90%2C45.05&layer=mapnik&marker=43.567%2C5.333"
+        loading="lazy"></iframe>
+    </div>
+    <ul class="zone-modal-cities">
+      <li>Aix-en-Provence</li><li>Pertuis</li><li>Manosque</li><li>Sisteron</li>
+      <li>Gap</li><li>Embrun</li><li>Briançon</li><li>Brignoles</li>
+    </ul>
   </div>
 </div>
 

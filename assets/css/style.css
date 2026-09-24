@@ -951,6 +951,60 @@ h2.section-title {
   color: var(--navy);
 }
 
+/* ---------- Zone d'intervention modal ---------- */
+
+.zone-trigger {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition);
+}
+.zone-trigger:hover, .zone-trigger:focus-visible {
+  border-color: currentColor;
+}
+
+.zone-modal-panel {
+  max-width: 900px;
+}
+
+.zone-modal-subtitle {
+  margin: -14px 0 20px;
+  color: var(--text-grey);
+  font-size: 14.5px;
+}
+
+.zone-modal-map {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--light-grey);
+}
+.zone-modal-map iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  display: block;
+}
+@media (min-width: 640px) {
+  .zone-modal-map iframe { height: 440px; }
+}
+
+.zone-modal-cities {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.zone-modal-cities li {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--off-white);
+  border: 1px solid var(--light-grey);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
 /* ---------- Leak detection card (fills the expertise grid gap) ---------- */
 
 .leak-card .expertise-card-body .num {
