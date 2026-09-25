@@ -55,6 +55,20 @@
     });
   });
 
+  // Audience tabs (Particuliers / Professionnels)
+  document.querySelectorAll(".audience-tab-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var tab = btn.getAttribute("data-tab");
+      document.querySelectorAll(".audience-tab-btn").forEach(function (b) {
+        b.classList.remove("active");
+      });
+      btn.classList.add("active");
+      document.querySelectorAll(".audience-tab-panel").forEach(function (p) {
+        p.classList.toggle("active", p.getAttribute("data-panel") === tab);
+      });
+    });
+  });
+
   // Reveal on scroll
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {

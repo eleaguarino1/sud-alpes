@@ -779,6 +779,113 @@ h2.section-title {
 
 .mid-cta .btn { flex: none; }
 
+/* ---------- Assistance technique (audience tabs) ---------- */
+
+.audience-points {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 0 auto 44px;
+}
+
+.audience-point { position: relative; text-align: center; }
+
+.audience-point .step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid rgba(var(--blue-rgb), 0.35);
+  font-size: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--blue);
+  margin: 0 auto 10px;
+}
+
+.audience-point h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.audience-points::after,
+.audience-points::before { content: none; }
+
+.audience-points .audience-point + .audience-point { position: relative; }
+.audience-points .audience-point:first-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: calc(100% + 14px);
+  width: 40px;
+  height: 1px;
+  background: rgba(var(--navy-rgb), 0.15);
+}
+
+.audience-tabs { max-width: 720px; margin: 0 auto; text-align: center; }
+
+.audience-tab-buttons {
+  display: inline-flex;
+  gap: 4px;
+  padding: 6px;
+  margin-bottom: 36px;
+  background: var(--white);
+  border: 1px solid rgba(20,35,59,0.1);
+  border-radius: 999px;
+}
+
+.audience-tab-btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-grey);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.audience-tab-btn:hover { color: var(--navy); }
+.audience-tab-btn.active { background: var(--navy); color: var(--white); }
+
+.audience-tab-panel { display: none; }
+.audience-tab-panel.active { display: block; }
+
+.audience-tab-panel p {
+  margin: 0 auto;
+  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-grey);
+}
+
+.audience-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.audience-chip-list li {
+  padding: 10px 22px;
+  border: 1px solid rgba(20,35,59,0.14);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--navy);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
 .expertise-card {
   position: relative;
   border-radius: var(--radius-lg);
